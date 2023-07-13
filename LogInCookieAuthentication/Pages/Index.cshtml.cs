@@ -44,8 +44,6 @@ public class IndexModel : PageModel
             IsLoggedIn = true;
             ErrorMessage = null;
 
-            // Update the User.Identity.Name to ensure the correct username is displayed
-
             return RedirectToPage();
         }
         else
