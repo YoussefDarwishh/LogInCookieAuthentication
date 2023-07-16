@@ -5,32 +5,27 @@
     @if (Model.IsLoggedIn)
     {
         <div class="alert alert-success" role="alert">
-            Hello, @User.Identity.Name ! You are logged in.
+            Hello, @User.Identity.Name! You are logged in.
         </div>
         <form method="post">
             <button type="submit" class="btn btn-primary">Logout</button>
         </form>
-    } 
+    }
     else
     {
         <h1>Login</h1>
         <form method="post">
             <div class="mb-3">
                 <label for="username" class="form-label">Username:</label>
-                <input type="text" id="username" name="Username" class="form-control" required />
+                <input type="text" id="username" name="LoginInput.Username" class="form-control" required />
+                <div class="text-danger" asp-validation-summary="All"></div>
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password:</label>
-                <input type="password" id="password" name="password" class="form-control" required />
+                <input type="password" id="password" name="LoginInput.Password" class="form-control" required />
+                <div class="text-danger" asp-validation-summary="All"></div>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-    }
-
-    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
-    {
-        <div class="alert alert-danger mt-3" role="alert">
-            @Model.ErrorMessage
-        </div>
     }
 </div>
